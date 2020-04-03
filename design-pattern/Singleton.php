@@ -15,16 +15,20 @@ class Singleton
         $this->data = $properties;
     }
 
+    //public and static so you can call it, but you can't change it
+    //is Singleton Design pattern
     final public static function instance(array $properties = []): self
     {
-        if (!self::$instance) {
-            self::$instance = new self($properties);
+        if (!self::$instance) { //if variable was pointing to an object (not true)
+            self::$instance = new self($properties); //create object using new self
         }
 
         return self::$instance;
     }
 
-    public function get(string $field)
+    //checking to see if field is key in data array
+    //with error handling
+    public function get(string $field) //creating an immutable service without set function
     {
         if (!array_key_exists($field, $this->data)) {
             throw new \InvalidArgumentException("No field $field");
@@ -33,6 +37,7 @@ class Singleton
         return $this->data[$field];
     }
 
+    //builds new copy of Singleton instance
     public static function reset(): void
     {
         self::$instance = null;
