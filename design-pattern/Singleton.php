@@ -5,12 +5,12 @@ namespace App\DesignPattern;
 
 class Singleton
 {
-    /** @var Singleton */
+    /** @var Singleton */ //contain an object of class Singleton
     private static $instance;
-    /** @var array */
+    /** @var array */ //declaring $instance will always be an array
     private $data;
 
-    final private function __construct(array $properties = [])
+    final private function __construct(array $properties = []) //constructor with optional array called $properties
     {
         $this->data = $properties;
     }
