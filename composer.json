@@ -1,0 +1,9 @@
+{
+    "name": "amains/hello-world",
+    "description": "Basic package for installing with composer",
+    "license": "MIT",
+    "require": {
+        "phpunit/phpunit": "^9.0.2",
+        "monolog/monolog": "^2.0"
+    }
+}
